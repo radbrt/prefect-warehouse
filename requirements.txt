@@ -1,0 +1,12 @@
+prefect
+prefect-shell
+prefect-dbt
+prefect-snowflake
+meltano==2.9.0
+adlfs
+snowflake-sqlalchemy
+git+https://github.com/wbond/oscrypto.git
+pandas<2.0.0
+dbt-core
+dbt-snowflake
+tabulate

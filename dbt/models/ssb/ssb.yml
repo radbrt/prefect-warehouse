@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: ssb
+    schema: ssb
+    database: landing
+    tables:
+      - name: befolkning_sysselsetting
+        columns:
+          - name: region
+            description: Kommune
+            tests:
+              - not_null
+          - name: kjonn
+            description: Kjønn
+            tests:
+              - not_null
+          - name: alder
+            description: Aldersgruppe
+            tests:
+              - not_null
+          - name: contentscode
+            description: Statistikkvariabel
+            tests:
+              - not_null
+          - name: tid
+            description: Tid
+            tests:
+              - not_null
+          - name: value
+

@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: befolkning_sysselsetting
+    description: Denne modellen representerer befolkningens sysselsetting forskjellige
+      steder i landet, basert på region, kjønn, alder og tid. Den gir en oversikt
+      over ulike statistikkvariabler knyttet til sysselsettingen.
+    columns:
+      - name: region
+        description: Representerer den geografiske kommune hvor dataen er samlet fra.
+      - name: kjonn
+        description: Representerer kjønnet til de registrerte individer.
+      - name: alder
+        description: Representerer aldersgruppen til de registrerte individer.
+      - name: contentscode
+        description: Representerer ulike statistikkvariabler knyttet til sysselsetting.
+      - name: tid
+        description: Representerer tidsperiode for hvert datapunkt.
+      - name: value
+        description: Representerer den faktiske verdien av den valgte statistikkvariabelen.

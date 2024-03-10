@@ -1,0 +1,39 @@
+version: 2
+models:
+  - name: sysselsetting_forholdstall
+    description: Denne dbt-modellen beregner forholdstall basert på sysselsettingsdata
+      i forskjellige regioner, skilt etter kjønn, alder, og tidsperiode. Modellen
+      gir innsikt i arbeidsmarkedsdeltagelse og balansen mellom antall sysselsatte
+      bosatt i en kommune versus de som arbeider i samme kommune. Dataene gjenspeiler
+      lokale sysselsettingsforhold og kan brukes til å identifisere trender og planlegge
+      for fremtidige behov på arbeidsmarkedet.
+    columns:
+      - name: region
+        description: Geografisk område (kommune) dataene gjelder for. Gir mulighet
+          til regionsspesifikk analyse.
+      - name: kjonn
+        description: Kjønnet til de registrerte individene, som hjelper til med å
+          forstå kjønnsspesifikke sysselsettingstrender.
+      - name: alder
+        description: Aldersgruppen til de registrerte individene. Vektlegger aldersrelaterte
+          sysselsettingstrekk.
+      - name: tid
+        description: Tidsrammen dataene er samlet inn i, nyttig for tidsbaserte analyser.
+      - name: sysselsatte_bosatt_i_kommunen
+        description: Antall ansatte bosatt i regionen. Nyttig for å forstå lokal sysselsetting.
+      - name: befolkning
+        description: Totalt antall personer bosatt i regionen. Nødvendig for å kalkulere
+          sysselsettingsrater.
+      - name: sysselsatte_i_kommunen
+        description: Antall ansatte som jobber i regionen, brukes til å analysere
+          jobbmarkedet lokalt.
+      - name: arbeidsmarkedsdeltagelse
+        description: Forhold mellom antall sysselsatte bosatt i kommunen og totalt
+          antall personer i regionen. Gir innsikt i arbeidsmarkedets åpenhet.
+      - name: sysselsettingsbalanse
+        description: Forholdet mellom antall sysselsatte bosatt i kommunen og antall
+          ansatte som jobber i kommunen. Indikerer balansen mellom lokal bosetting
+          og sysselsetting.
+      - name: endring_i_sysselsettingsrate
+        description: Endring i sysselsettingsrate fra forrige tidsperiode. Gir innsikt
+          i sysselsettingstrender over tid.

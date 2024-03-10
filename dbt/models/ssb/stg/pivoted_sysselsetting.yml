@@ -1,0 +1,30 @@
+version: 2
+models:
+  - name: pivoted_sysselsetting
+    description: Denne dbt-modellen gir en pivotert oversikt over sysselsettingsdata
+      for befolkningen i ulike regioner, skilt på kjønn, alder og tidsperiode. Den
+      konsoliderer informasjonen om antall ansatte basert på bosted, total befolkning
+      i regionen, og antall ansatte som jobber i regionen, noe som gir en nyttig innsikt
+      i arbeidsmarkedet på et mer detaljert nivå.
+    columns:
+      - name: region
+        description: Geografisk kommune hvor dataene er samlet. Gir innsikt i regionsspesifikke
+          sysselsettingstrender.
+      - name: kjonn
+        description: Kjønnet til de registrerte individene. Denne kolonnen er viktig
+          for å forstå kjønnsspesifikke sysselsettingstrender og -forskjeller.
+      - name: alder
+        description: Aldersgruppen til de registrerte individene. Lar oss analysere
+          aldersspesifikke sysselsettingsmønstre.
+      - name: tid
+        description: Tidsperiode for hvert datapunkt. Denne kolonnen hjelper med tidsmålinger
+          og trendanalyse.
+      - name: sysselsatte_bosatt_i_kommunen
+        description: Antall ansatte som bor i regionen. Gir verdifull innsikt i hvor
+          mange av regionens innbyggere som er sysselsatt.
+      - name: befolkning
+        description: Totalt antall personer i regionen. Nyttig for å beregne sysselsettingsrate
+          og for å forstå befolkningens størrelse og struktur.
+      - name: sysselsatte_i_kommunen
+        description: Antall ansatte som jobber i regionen, uavhengig av bosted. Viktig
+          for å analysere den lokale økonomien og arbeidsmarkedet.

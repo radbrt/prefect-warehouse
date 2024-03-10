@@ -1,0 +1,47 @@
+name: dwh
+version: '1.0.0'
+config-version: 2
+
+profile: 'default'
+
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+vars:
+  # The package can be temporarily disabled using this variable
+  dbt_constraints_enabled: true
+
+  # The package can also add constraints on sources if you have sufficient privileges
+  dbt_constraints_sources_enabled: false
+
+  # You can also be specific on which constraints are enabled for sources
+  # You must also enable dbt_constraints_sources_enabled above
+  dbt_constraints_sources_pk_enabled: true
+  dbt_constraints_sources_uk_enabled: true
+  dbt_constraints_sources_fk_enabled: true
+  dbt_constraints_sources_nn_enabled: true
+
+models:
+  dwh:
+    +schema: develop
+    +database: dbthouse
+    +materialized: view
+    +persist_docs:
+      columns: true
+      relation: true
+    ssb:
+      stg:
+        +schema: develop
+        +materialized: view
+      dwh:
+        +schema: dwh
+        +materialized: table
+
+snapshots:
+  +target_schema: er

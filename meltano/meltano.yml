@@ -1,0 +1,34 @@
+version: 1
+default_environment: main
+project_id: rad-prefect-warehouse
+environments:
+- name: main
+
+plugins:
+  extractors:
+  - name: tap-pxwebapi
+    variant: storebrand
+    pip_url: git+https://github.com/storebrand/tap-pxwebapi.git
+    config:
+      tables:
+      - table_name: lonn_syss_nace
+        table_id: '09175'
+        select:
+        - code: 'ContentsCode'
+          values:
+          - 'Lonn'
+          - 'Sysselsatte'
+          - 'Timeverk'
+
+  loaders:
+  - name: target-snowflake-ssb
+    variant: meltanolabs
+    pip_url: meltanolabs-target-snowflake
+    config:
+      account: ax61550.west-europe.azure
+      warehouse: DBT_WH
+      database: LANDING
+      user: RADRUN
+      role: DBT
+      file_format: LANDING.CASES.MELTANO_CSV
+      default_target_schema: SSB
