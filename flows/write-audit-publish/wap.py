@@ -11,7 +11,7 @@ from textwrap import dedent
 from prefect_dbt.cli import DbtCliProfile
 from prefect_snowflake import SnowflakeCredentials
 
-@flow
+@task
 def trigger_dbt_flow() -> str:
 
     dbt_cli_profile = DbtCliProfile.load("newdbt")
